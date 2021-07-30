@@ -2,8 +2,9 @@
 /**
  * Plugin Name: Fade to White
  * Description: Sunsets a site by a given date.
- * Note: Require define FTB_START_DATE in 'YYYY-MM-DD'
- * Note: Require define FTB_COMPLETION_DATE in 'YYYY-MM-DD'
+ * Note: Require define FTW_ENABLED as true for it to work
+ * Note: Require define FTW_COMPLETION_DATE in 'YYYY-MM-DD'
+ * Note: Require define FTW_COMPLETION_DATE in 'YYYY-MM-DD'
  *
  * @author  Scott Anderson <scott@thriftydeveloper.com>
  * @package ThriftyDeveloper\MU_Plugin\Fade_To_White
@@ -43,10 +44,10 @@ class Fade_To_White {
 	 * Construct
 	 *
 	 * @since  0.1.0
-	 * @author Scott Anderson <scott@church.agency>
+	 * @author Scott Anderson <scott@thriftydeveloper.com>
 	 */
 	public function __construct() {
-		if ( FTB_ENABLED ) {
+		if ( FTW_ENABLED ) {
 			$this->load_variables();
 			$this->hooks();
 		}
@@ -62,8 +63,8 @@ class Fade_To_White {
 	 */
 	private function load_variables() : void {
 		$this->today           = new \DateTime( 'NOW' );
-		$this->start_date      = new \DateTime( FTB_START_DATE );
-		$this->completion_date = new \DateTime( FTB_COMPLETION_DATE );
+		$this->start_date      = new \DateTime( FTW_START_DATE );
+		$this->completion_date = new \DateTime( FTW_COMPLETION_DATE );
 	}
 
 	/**
@@ -104,7 +105,7 @@ class Fade_To_White {
 /**
  * Load the Plugin
  *
- * @author Scott Anderson <scott@church.agency>
+ * @author Scott Anderson <scott@thriftydeveloper.com>
  * @since  0.1.0
  */
 function load_plugin() {
